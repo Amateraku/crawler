@@ -19,18 +19,15 @@ def crawl():
         print(HTTPStatus.INTERNAL_SERVER_ERROR, weather_info.text)
 
     weather = {
+        "time": time.strftime("%m/%d/%Y, %H:%M:%S", time.localtime()),
         "city": json.loads(weather_info.text)["location"]["name"],
         "temp": json.loads(weather_info.text)["current"]["temp_c"],
         "humidity": json.loads(weather_info.text)["current"]["humidity"]
     }
 
     save_file = open(config.CRAWLER_SAVE_FILE_NAME, "a")
-    save_file.write(f'''
-{local_time}: 
-    city={weather['city']}
-    temp={weather['temp']}
-    humidity={weather['humidity']}
-''')
+    json_object = json.dumps(weather)
+    save_file.write(json_object)
     save_file.close()
 
 
