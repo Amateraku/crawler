@@ -2,4 +2,4 @@ crawler:
   interval: 3600
   token: "3ddc8843894b4944948123115231604"
   city: "Kiev"
-  save_file_name: "weather info.json"
+  save_file_name: "weather_info.json"

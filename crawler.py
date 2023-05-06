@@ -25,7 +25,7 @@ def crawl():
         "humidity": json.loads(weather_info.text)["current"]["humidity"]
     }
 
-    save_file = open(config.CRAWLER_SAVE_FILE_NAME, "a")
+    save_file = open(config.CRAWLER_SAVE_FILE_NAME, "w")
     json_object = json.dumps(weather)
     save_file.write(json_object)
     save_file.close()
